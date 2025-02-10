@@ -223,7 +223,7 @@ document.addEventListener("keydown", (event: KeyboardEvent) => {
     if (!isNaN(Number(key)) || "+-*/().".includes(key)) {
         calculator.append(key);
     } else if (key.toLowerCase() === "p") {
-        calculator.append("π"); // Allow users to type "p" for π
+        calculator.append("π"); 
     } else if (key === "Enter") {
         calculator.evaluate();
     } else if (key === "Backspace") {
@@ -241,17 +241,17 @@ document.getElementById("toggle-theme")?.addEventListener("click", (event: Mouse
     calculator.toggleTheme();
 });
 
-const calculator = document.querySelector(".calculator") as HTMLElement; // Type assertion
+const calculator = document.querySelector(".calculator") as HTMLElement; 
 
-if (calculator) { // Check if the element exists
+if (calculator) { 
   calculator.addEventListener("click", (event: MouseEvent) => {
-    const target = event.target as HTMLElement; // Type assertion for the target
+    const target = event.target as HTMLElement; 
 
     if (target && target.classList.contains("theme-button")) {
       return;
     }
 
-    if (calculator && typeof (calculator as any).handleInput === 'function') { // Check if handleInput exists and is a function
+    if (calculator && typeof (calculator as any).handleInput === 'function') { 
       (calculator as any).handleInput(target.innerText);
     } else {
       console.error("handleInput is not defined on the calculator element.");
@@ -271,7 +271,6 @@ const calculatorInstance = document.querySelector(".calculator") as unknown as C
 
 if (calculatorInstance) {
   calculatorInstance.handleInput = (input: string) => {
-    // Your calculator logic here
     console.log("Input received:", input);
   };
 }
